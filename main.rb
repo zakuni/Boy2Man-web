@@ -10,7 +10,7 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    slim :index, :locals => {:title => "Sinatra Template"}
+    slim :index, :locals => {:title => "Boy2Man"}
   end
 
   get '/hello/:name' do
@@ -18,7 +18,7 @@ class App < Sinatra::Base
   end
 
   post '/' do
-    "#{params[:text]}"
+    "#{params[:hand]}"
   end
 
   put '/' do
