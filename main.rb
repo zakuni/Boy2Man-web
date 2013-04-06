@@ -12,7 +12,6 @@ class App < Sinatra::Base
 
   before do
     @b = Boy2Man::Boy2Man.new
-    puts "before"
   end
 
   get '/' do
