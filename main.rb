@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 Slim::Engine.set_default_options :pretty => true
 
 class App < Sinatra::Base
@@ -9,27 +10,24 @@ class App < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  before do
+    @b = Boy2Man::Boy2Man.new
+    puts "before"
+  end
+
   get '/' do
     slim :index, :locals => {:title => "Boy2Man"}
   end
 
-  get '/hello/:name' do
-    "Hello #{params[:name]}"
+  get '/g' do
+    @b.match "グー"
+  end
+  
+  get '/c' do
+    @b.match "チョキ"
   end
 
-  post '/' do
-    "#{params[:hand]}"
-  end
-
-  put '/' do
-    '.. update something ..'
-  end
-
-  delete '/' do
-    '.. annihilate something ..'
-  end
-
-  options '/' do
-    '.. appease something ..'
+  get '/p' do
+    @b.match "パー"
   end
 end
