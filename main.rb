@@ -2,6 +2,7 @@
 Slim::Engine.set_default_options :pretty => true
 
 class App < Sinatra::Base
+  use Rack::Session::Pool
   register Padrino::Sprockets
   sprockets
 
@@ -11,7 +12,8 @@ class App < Sinatra::Base
   end
 
   before do
-    @b = Boy2Man::Boy2Man.new
+    session["boy2man"] ||= Boy2Man::Boy2Man.new
+    @b = session["boy2man"]
   end
 
   get '/' do
