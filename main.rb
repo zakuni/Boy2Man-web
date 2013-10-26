@@ -12,8 +12,8 @@ class App < Sinatra::Base
   end
 
   before do
-    session["boy2man"] ||= Boy2Man::Boy2Man.new
-    @b = session["boy2man"]
+    session["boy2man"] ||= Boy2Man::Janken.new
+    @janken = session["boy2man"]
   end
 
   get '/' do
@@ -21,14 +21,14 @@ class App < Sinatra::Base
   end
 
   get '/g' do
-    @b.match "グー"
+    @janken.pon "グー"
   end
   
   get '/c' do
-    @b.match "チョキ"
+    @janken.pon "チョキ"
   end
 
   get '/p' do
-    @b.match "パー"
+    @janken.pon "パー"
   end
 end
