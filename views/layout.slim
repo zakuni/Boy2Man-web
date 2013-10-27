@@ -2,12 +2,16 @@ doctype html
 html
   head
     meta(charset='UTF-8')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js')
-    script(src='assets/main.js')
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
     link rel="stylesheet" href="assets/main.css"
+    link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
     title #{title}
   body
-    == yield
-    footer
-      hr
-      p by zakuni
+    .container
+      == yield
+      footer
+        hr
+        p by zakuni
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+    script(src='assets/main.js')      
+    script(src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js")
