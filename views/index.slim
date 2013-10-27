@@ -4,11 +4,13 @@ header
     img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"
 section
   h2 じゃんけん
-  input#g type="button" value="グー"
-  input#c type="button" value="チョキ"
-  input#p type="button" value="パー"
+  input#g.btn.btn-default type="button" value="グー"
+  input#c.btn.btn-default type="button" value="チョキ"
+  input#p.btn.btn-default type="button" value="パー"
   h3 Result
-  table#result
-    tr#result
-      th You
-      th Boy2Man
+  table#result.table.table-condensed.table-bordered.table-striped
+    thead
+      tr#result
+        th You
+        th Boy2Man
+    tbody
