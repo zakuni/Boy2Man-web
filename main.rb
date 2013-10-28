@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+require 'json'
 Slim::Engine.set_default_options :pretty => true
 
 class App < Sinatra::Base
@@ -21,14 +22,59 @@ class App < Sinatra::Base
   end
 
   get '/g' do
-    @janken.pon "グー"
+    player_hand = "グー"
+    opponent = @janken.pon(player_hand)
+    winner = case Boy2Man.judge(player_hand, opponent)
+    when player_hand
+      "player"
+    when opponent
+      "boy2man"
+    else
+      nil
+    end
+
+    JSON.generate({
+      "player" => player_hand,
+      "boy2man" => opponent,
+      "winner" => winner
+    })    
   end
   
   get '/c' do
-    @janken.pon "チョキ"
+    player_hand = "チョキ"
+    opponent = @janken.pon(player_hand)
+    winner = case Boy2Man.judge(player_hand, opponent)
+    when player_hand
+      "player"
+    when opponent
+      "boy2man"
+    else
+      nil
+    end
+
+    JSON.generate({
+      "player" => player_hand,
+      "boy2man" => opponent,
+      "winner" => winner
+    }) 
   end
 
   get '/p' do
-    @janken.pon "パー"
+    player_hand = "パー"
+    opponent = @janken.pon(player_hand)
+    winner = case Boy2Man.judge(player_hand, opponent)
+    when player_hand
+      "player"
+    when opponent
+      "boy2man"
+    else
+      nil
+    end
+
+    JSON.generate({
+      "player" => player_hand,
+      "boy2man" => opponent,
+      "winner" => winner
+    }) 
   end
 end
