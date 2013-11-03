@@ -8,6 +8,15 @@ $ ->
   controller = new Leap.Controller()
   controller.connect()
 
+  controller.on('frame', (frame) ->
+    numberOfFingers = frame.fingers.length
+
+    hand = frame.hands[0]
+    if (hand?)
+      console.log(hand.palmPosition)
+      console.log(hand.fingers.length)
+  )
+
 janken = (selected) ->
   $.get selected, (res) ->
       result = JSON.parse(res)
