@@ -5,6 +5,9 @@ $ ->
   $('#c').click => janken("c")
   $('#p').click => janken("p")
 
+  controller = new Leap.Controller()
+  controller.connect()
+
 janken = (selected) ->
   $.get selected, (res) ->
       result = JSON.parse(res)
