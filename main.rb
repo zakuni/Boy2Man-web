@@ -6,6 +6,8 @@ class App < Sinatra::Base
   use Rack::Session::Pool
   register Padrino::Sprockets
   sprockets
+  register Sinatra::RocketIO
+  io = Sinatra::RocketIO
 
   configure :development do
     Bundler.require :development
@@ -15,6 +17,10 @@ class App < Sinatra::Base
   before do
     session["boy2man"] ||= Boy2Man::Janken.new
     @janken = session["boy2man"]
+  end
+  
+  io.once :start do
+    puts "RocketIO start!!!"
   end
 
   get '/' do
