@@ -1,9 +1,11 @@
 win = lose = draw = 0
 
+io = new RocketIO().connect()
+
 $ ->
-  $('#g').click => janken("g")
-  $('#c').click => janken("c")
-  $('#p').click => janken("p")
+  $('#g').click => janken("グー")
+  $('#c').click => janken("チョキ")
+  $('#p').click => janken("パー")
 
   controller = new Leap.Controller()
   controller.connect()
@@ -17,20 +19,22 @@ $ ->
       console.log(hand.fingers.length)
   )
 
-janken = (selected) ->
-  $.get selected, (res) ->
-      result = JSON.parse(res)
-      trtd = '<tr><td>' + result["player"] + '</td><td>' + result["boy2man"] + '</td></tr>'
+io.on("pon", (result) ->
+  trtd = '<tr><td>' + result["player"] + '</td><td>' + result["boy2man"] + '</td></tr>'
 
-      if result["winner"] == "player"
-        win = win+1
-        $('#win').html(win)
-        $('table#result').prepend($(trtd).addClass('success'))
-      else if result["winner"] == "boy2man"
-        lose = lose+1
-        $('#lose').html(lose)
-        $('table#result').prepend($(trtd).addClass('danger'))        
-      else
-        draw = draw+1
-        $('#draw').html(draw)
-        $('table#result').prepend($(trtd).addClass('active'))        
+  if result["winner"] == "player"
+    win = win+1
+    $('#win').html(win)
+    $('table#result').prepend($(trtd).addClass('success'))
+  else if result["winner"] == "boy2man"
+    lose = lose+1
+    $('#lose').html(lose)
+    $('table#result').prepend($(trtd).addClass('danger'))        
+  else
+    draw = draw+1
+    $('#draw').html(draw)
+    $('table#result').prepend($(trtd).addClass('active'))
+)
+
+janken = (selected) ->
+  io.push("janken", {hand: selected})      

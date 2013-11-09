@@ -18,9 +18,25 @@ class App < Sinatra::Base
     session["boy2man"] ||= Boy2Man::Janken.new
     @janken = session["boy2man"]
   end
-  
-  io.once :start do
-    puts "RocketIO start!!!"
+
+  io.on :connect do |client|
+    @janken ||= Boy2Man::Janken.new
+  end
+
+  io.on :janken do |data, client|
+    player_hand = data['hand']
+    opponent = @janken.pon(player_hand)
+    winner = case Boy2Man.judge(player_hand, opponent)
+    when player_hand
+      "player"
+    when opponent
+      "boy2man"
+    else
+      nil
+    end
+    io.push :pon,
+      {:player => player_hand, :boy2man => opponent, :winner => winner},
+      {:to => client.session}
   end
 
   get '/' do
