@@ -8,6 +8,7 @@ gem "slim"
 gem "sass"
 gem "coffee-script"
 gem "Boy2Man"
+gem "thin"
 
 group :development do
   gem "sinatra-contrib", :require => "sinatra/reloader"
