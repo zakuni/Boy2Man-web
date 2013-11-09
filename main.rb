@@ -14,12 +14,13 @@ class App < Sinatra::Base
   end
 
   io.on :connect do |client|
-    @janken ||= Boy2Man::Janken.new
+    @janken ||= Hash.new
+    @janken[client.session] ||= Boy2Man::Janken.new
   end
 
   io.on :janken do |data, client|
     player_hand = data['hand']
-    opponent = @janken.pon(player_hand)
+    opponent = @janken[client.session].pon(player_hand)
     winner = case Boy2Man.judge(player_hand, opponent)
     when player_hand
       "player"
