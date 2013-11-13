@@ -19,6 +19,11 @@ $ ->
       console.log(hand.fingers.length)
   )
 
+io.on("connect", () ->
+  console.log("connect!! "+io.session)
+  console.log("type : "+io.type)
+)
+
 io.on("pon", (result) ->
   trtd = '<tr><td>' + result["player"] + '</td><td>' + result["boy2man"] + '</td></tr>'
 
