@@ -4,9 +4,9 @@ header
     img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"
 section
   h2 じゃんけん
-  input#g.btn.btn-default type="button" value="グー"
-  input#c.btn.btn-default type="button" value="チョキ"
-  input#p.btn.btn-default type="button" value="パー"
+  = button_tag "グー", :id => 'g', :class => 'btn btn-default'
+  = button_tag "チョキ", :id => 'c', :class => 'btn btn-default'  
+  = button_tag "パー", :id => 'p', :class => 'btn btn-default'  
   h3 Result
   h4 
     | Win 

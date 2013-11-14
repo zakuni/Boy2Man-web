@@ -2,6 +2,7 @@ ruby '2.0.0'
 source "https://rubygems.org"
 gem "sinatra", :require => ["sinatra", "sinatra/base"]
 gem 'padrino-sprockets', :git => "https://github.com/nightsailer/padrino-sprockets.git", :require => "padrino/sprockets"
+gem 'padrino', :require => "padrino-helpers"
 gem 'sinatra-rocketio', :require => "sinatra/rocketio"
 
 gem "slim"

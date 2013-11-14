@@ -3,8 +3,8 @@ html
   head
     meta(charset='UTF-8')
     meta name="viewport" content="width=device-width, initial-scale=1.0"
-    link rel="stylesheet" href="assets/main.css"
-    link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+    = stylesheet_link_tag 'assets/main'
+    = stylesheet_link_tag '//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min'
     title #{title}
   body
     .container
@@ -12,8 +12,8 @@ html
       footer
         hr
         p by zakuni
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
-    script(src="#{rocketio_js}")
-    script(src='assets/main.js')      
-    script(src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js")
-    script(src="https://js.leapmotion.com/0.3.0-beta2/leap.min.js")
+    = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'
+    = javascript_include_tag rocketio_js
+    script(src='assets/main.js')
+    = javascript_include_tag 'https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js'
+    = javascript_include_tag 'https://js.leapmotion.com/0.3.0-beta2/leap.min.js'
