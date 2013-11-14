@@ -9,6 +9,9 @@ GEM
   remote: https://rubygems.org/
   specs:
     Boy2Man (0.2.2)
+    activesupport (3.2.14)
+      i18n (~> 0.6, >= 0.6.4)
+      multi_json (~> 1.0)
     backports (3.3.5)
     coffee-script (2.2.0)
       coffee-script-source
@@ -24,12 +27,50 @@ GEM
     hashie (2.0.5)
     hike (1.2.3)
     http_parser.rb (0.5.3)
+    http_router (0.11.0)
+      rack (>= 1.0.0)
+      url_mount (~> 0.2.1)
     httparty (0.12.0)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
+    i18n (0.6.5)
     json (1.8.1)
+    mail (2.5.4)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mime-types (1.23)
     multi_json (1.8.2)
     multi_xml (0.5.5)
+    padrino (0.11.4)
+      padrino-admin (= 0.11.4)
+      padrino-cache (= 0.11.4)
+      padrino-core (= 0.11.4)
+      padrino-gen (= 0.11.4)
+      padrino-helpers (= 0.11.4)
+      padrino-mailer (= 0.11.4)
+    padrino-admin (0.11.4)
+      padrino-core (= 0.11.4)
+      padrino-helpers (= 0.11.4)
+    padrino-cache (0.11.4)
+      padrino-core (= 0.11.4)
+      padrino-helpers (= 0.11.4)
+    padrino-core (0.11.4)
+      activesupport (>= 3.1, < 4.0)
+      http_router (~> 0.11.0)
+      rack-protection (>= 1.5.0)
+      sinatra (~> 1.4.2)
+      thor (~> 0.17.0)
+      tilt (~> 1.4.1)
+    padrino-gen (0.11.4)
+      bundler (~> 1.0)
+      padrino-core (= 0.11.4)
+    padrino-helpers (0.11.4)
+      i18n (~> 0.6)
+      padrino-core (= 0.11.4)
+    padrino-mailer (0.11.4)
+      mail (~> 2.5.3)
+      padrino-core (= 0.11.4)
+    polyglot (0.3.3)
     rack (1.5.2)
     rack-protection (1.5.1)
       rack
@@ -82,7 +123,13 @@ GEM
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
       rack (>= 1.0.0)
+    thor (0.17.0)
     tilt (1.4.1)
+    treetop (1.4.14)
+      polyglot
+      polyglot (>= 0.3.1)
+    url_mount (0.2.1)
+      rack
     websocket (1.1.1)
     websocket-client-simple (0.0.5)
       event_emitter
@@ -94,6 +141,7 @@ PLATFORMS
 DEPENDENCIES
   Boy2Man
   coffee-script
+  padrino
   padrino-sprockets!
   sass
   sinatra

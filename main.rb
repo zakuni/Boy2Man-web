@@ -5,6 +5,7 @@ Slim::Engine.set_default_options :pretty => true
 class App < Sinatra::Base
   register Padrino::Sprockets
   sprockets
+  register Padrino::Helpers
   register Sinatra::RocketIO
   io = Sinatra::RocketIO
 
